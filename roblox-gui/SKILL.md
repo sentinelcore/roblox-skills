@@ -169,6 +169,8 @@ screenGui.ResetOnSpawn = true   -- re-create on respawn (respawn timer) — defa
 | Padded list | `UIPadding` + `UIListLayout` inside a Frame |
 | Scrollable list | `ScrollingFrame` + `UIListLayout`; set `CanvasSize` from `UIListLayout.AbsoluteContentSize` |
 | Rounded corners | `UICorner` with `CornerRadius = UDim.new(0, 8)` |
+| Scaled text | `TextScaled = true` on TextLabel/TextButton so font grows with container |
+| Dynamic frame height | `AutomaticSize = Enum.AutomaticSize.Y` so frame expands to fit children |
 | Health bar | Nested frames: outer = background, inner tweened by `Size.X.Scale` |
 | Name tag | `BillboardGui` on Head, `StudsOffset = Vector3.new(0, 2.5, 0)` |
 
@@ -186,3 +188,5 @@ screenGui.ResetOnSpawn = true   -- re-create on respawn (respawn timer) — defa
 | `AbsoluteSize` is zero on first frame | Read it inside `task.defer` or after first render step |
 | Clicks pass through overlapping frames | Add a transparent input-blocking Frame or set `Modal = true` |
 | SurfaceGui flickers | Set `LightInfluence = 0`; ensure part isn't too thin |
+| Text tiny on mobile | Set `TextScaled = true` — fixed `TextSize` doesn't adapt to screen size |
+| UI hard to test on mobile | Use Studio's **Device Emulator** (Test tab → Device) to preview layouts |

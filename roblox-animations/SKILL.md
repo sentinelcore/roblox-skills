@@ -201,6 +201,12 @@ track.WeightTarget   -- target weight after fade
 
 ---
 
+## Upper-Body Only Animations
+
+Priority blending affects **all joints** an animation touches. To play a wave only on the arms while legs animate from run/idle, the animation itself must be authored to only key upper-body bones (leave lower-body joints unkeyed in the Animation Editor). There is no runtime API to mask joints — the solution is in the animation asset, not the script.
+
+---
+
 ## Common Mistakes
 
 | Mistake | Fix |

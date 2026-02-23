@@ -146,7 +146,22 @@ Sell clothing, accessories, and bundles in the Roblox Marketplace.
 
 ---
 
-## 4. Premium Payouts
+## 4. Communicating Purchase State to the Client
+
+After granting a product server-side, notify the client via a `RemoteEvent` so the UI can update (show a boost timer, unlock a button, etc.):
+
+```lua
+-- Inside ProcessReceipt, after DataStore save succeeds
+local NotifyClient = game:GetService("ReplicatedStorage").Remotes.PurchaseGranted
+local player = Players:GetPlayerByUserId(receiptInfo.PlayerId)
+if player then
+    NotifyClient:FireClient(player, { productId = receiptInfo.ProductId })
+end
+```
+
+---
+
+## 5. Premium Payouts
 
 Passive Robux from Roblox Premium subscribers spending time in your game. **No setup required.**
 
